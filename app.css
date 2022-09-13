@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drag And Drog Api</title>
-</head>
-<style>
-    body{
-        display: flex;
+body{
+ display: flex;
         align-items: center;
         justify-content: space-around;
     }
@@ -95,44 +86,3 @@
 }
 
 }
-
-</style>
-<body>
-
-       <div class="container">
-        <div id="dragItem" draggable="true"></div>    
-      </div>
-        <div  class="dropBox">drop here</div>
-
-        
-
-  <script type="text/javascript">
-      let dragItem = document.getElementById("dragItem");
-            dragItem.addEventListener("dragstart", e=>{
-                e.dataTransfer.setData("text/plain","drag me now");
-            });
-
-
-                for(let dropBox of document.querySelectorAll(".dropBox")){
-                    // dragded item is getting swapped
-                    dropBox.addEventListener("dragover", e=>{
-                    e.preventDefault();
-                    dropBox.classList.add("itemSwap");
-                    });
-
-                    // the item  is no longer over the dropBox
-                    dropBox.addEventListener("dragleave", e=>{
-                    dropBox.classList.remove("itemSwap");
-                    });
-                    //item being swapped 
-                    dropBox.addEventListener("drop",e=>{
-                        e.preventDefault();
-                        dropBox.appendChild(dragItem)
-                    
-                       
-                    });
-
-                }
-  </script>  
-</body>
-</html>
